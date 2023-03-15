@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validação de informações</title>
+	<meta charset="utf-8">
+	<script>
+		function validar(){
+			var nome = document.getElementById("nome").value;
+			var idade = document.getElementById("idade").value;
+			var salario = document.getElementById("salario").value;
+			var sexo = document.querySelector('input[name="sexo"]:checked');
+			var estadoCivil = document.querySelector('input[name="estadoCivil"]:checked');
+
+			if(nome.length < 4){
+				alert("O nome deve ter mais de 3 caracteres!");
+				return false;
+			}
+
+			if(idade < 0 || idade > 150){
+				alert("A idade deve estar entre 0 e 150 anos!");
+				return false;
+			}
+
+			if(salario <= 0){
+				alert("O salário deve ser maior que zero!");
+				return false;
+			}
+
+			if(!sexo){
+				alert("Selecione o sexo!");
+				return false;
+			}
+
+			if(!estadoCivil){
+				alert("Selecione o estado civil!");
+				return false;
+			}
+
+			alert("Cadastro realizado com sucesso!");
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<h1>Validação de informações</h1>
+	<form onsubmit="return validar();">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"><br>
+
+		<label for="idade">Idade:</label>
+		<input type="number" id="idade" name="idade"><br>
+
+		<label for="salario">Salário:</label>
+		<input type="number" id="salario" name="salario"><br>
+
+		<label for="sexo">Sexo:</label>
+		<input type="radio" id="feminino" name="sexo" value="f">
+		<label for="feminino">Feminino</label>
+		<input type="radio" id="masculino" name="sexo" value="m">
+		<label for="masculino">Masculino</label><br>
+
+		<label for="estadoCivil">Estado civil:</label>
+		<input type="radio" id="solteiro" name="estadoCivil" value="s">
+		<label for="solteiro">Solteiro(a)</label>
+		<input type="radio" id="casado" name="estadoCivil" value="c">
+		<label for="casado">Casado(a)</label>
+		<input type="radio" id="viuvo" name="estadoCivil" value="v">
+		<label for="viuvo">Viúvo(a)</label>
+		<input type="radio" id="divorciado" name="estadoCivil" value="d">
+		<label for="divorciado">Divorciado(a)</label><br>
+
+		<input type="submit" value="Cadastrar">
+	</form>
+</body>
+</html>

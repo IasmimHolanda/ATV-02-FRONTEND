@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projeção de População</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Projeção de População</h1>
+
+	<p>Informe as populações e as taxas de crescimento iniciais:</p>
+	<label for="populacaoA">População do país A:</label>
+	<input type="number" id="populacaoA">
+	<label for="taxaA">Taxa de crescimento anual do país A:</label>
+	<input type="number" id="taxaA" step="0.01">
+	<label for="populacaoB">População do país B:</label>
+	<input type="number" id="populacaoB">
+	<label for="taxaB">Taxa de crescimento anual do país B:</label>
+	<input type="number" id="taxaB" step="0.01">
+
+	<button onclick="calcularAnos()">Calcular Anos</button>
+
+	<p id="mensagem"></p>
+
+	<script>
+		function calcularAnos() {
+			var populacaoA = document.getElementById("populacaoA").value;
+			var taxaA = document.getElementById("taxaA").value;
+			var populacaoB = document.getElementById("populacaoB").value;
+			var taxaB = document.getElementById("taxaB").value;
+			var anos = 0;
+
+			if (populacaoA <= 0 || populacaoB <= 0 || taxaA <= 0 || taxaB <= 0) {
+				document.getElementById("mensagem").innerHTML = "Por favor, informe valores positivos para as populações e as taxas de crescimento.";
+			} else {
+				while (populacaoA < populacaoB) {
+					populacaoA += populacaoA * taxaA;
+					populacaoB += populacaoB * taxaB;
+					anos++;
+				}
+
+				document.getElementById("mensagem").innerHTML = "Serão necessários " + anos + " anos para que a população do país A ultrapasse ou iguale a população do país B.";
+
+				document.getElementById("populacaoA").value = "";
+				document.getElementById("taxaA").value = "";
+				document.getElementById("populacaoB").value = "";
+				document.getElementById("taxaB").value = "";
+			}
+		}
+	</script>
+</body>
+</html>

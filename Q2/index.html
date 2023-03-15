@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<script>
+		function login() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			
+			if (username === password) {
+				alert("A senha não pode ser igual ao nome de usuário. Tente novamente.");
+				document.getElementById("password").value = "";
+				return;
+			}
+			
+			// Código para fazer login aqui
+			alert("Login bem-sucedido!");
+		}
+	</script>
+</head>
+<body>
+	<h1>Login</h1>
+	<form>
+		<label for="username">Nome de usuário:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="password">Senha:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<input type="button" value="Login" onclick="login()">
+	</form>
+</body>
+</html>

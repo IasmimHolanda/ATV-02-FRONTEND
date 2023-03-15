@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projeção de População</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Projeção de População</h1>
+
+	<p>População do país A: 80.000 habitantes</p>
+	<p>Taxa de crescimento anual do país A: 3%</p>
+	<p>População do país B: 200.000 habitantes</p>
+	<p>Taxa de crescimento anual do país B: 1.5%</p>
+
+	<button onclick="calcularAnos()">Calcular Anos</button>
+
+	<p id="mensagem"></p>
+
+	<script>
+		function calcularAnos() {
+			var populacaoA = 80000;
+			var taxaA = 0.03;
+			var populacaoB = 200000;
+			var taxaB = 0.015;
+			var anos = 0;
+
+			while (populacaoA < populacaoB) {
+				populacaoA += populacaoA * taxaA;
+				populacaoB += populacaoB * taxaB;
+				anos++;
+			}
+
+			document.getElementById("mensagem").innerHTML = "Serão necessários " + anos + " anos para que a população do país A ultrapasse ou iguale a população do país B.";
+		}
+	</script>
+</body>
+</html>
